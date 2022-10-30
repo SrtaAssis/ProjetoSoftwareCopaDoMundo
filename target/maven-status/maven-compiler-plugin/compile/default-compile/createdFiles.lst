@@ -1,0 +1,5 @@
+com\companyJAF\sistemaclassificacao\service\teste.class
+com\companyJAF\sistemaclassificacao\repository\TimeRepository.class
+com\companyJAF\sistemaclassificacao\model\Time$TimeBuilder.class
+com\companyJAF\sistemaclassificacao\model\Time.class
+com\companyJAF\sistemaclassificacao\SistemaClassificacaoApplication.class
