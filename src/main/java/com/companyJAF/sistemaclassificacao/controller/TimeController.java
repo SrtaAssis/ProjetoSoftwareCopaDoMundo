@@ -29,4 +29,16 @@ public class TimeController {
     public ResponseEntity<Time> criarTime(String nome) throws Exception {
         return ResponseEntity.ok().body(timeService.gravarTime(nome));
     }
+
+    @ResponseBody
+    @GetMapping(value = "/times-disponiveis", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Time>> timesDisponiveis(String nome) throws Exception {
+        return ResponseEntity.ok().body(timeService.getTimesDisponiveis());
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/times-eliminados", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Time>> timesEliminados(String nome) throws Exception {
+        return ResponseEntity.ok().body(timeService.getTimesEliminados());
+    }
 }

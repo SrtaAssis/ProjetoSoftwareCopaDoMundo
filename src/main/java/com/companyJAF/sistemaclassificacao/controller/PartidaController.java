@@ -30,4 +30,16 @@ public class PartidaController {
         return ResponseEntity.ok().body(partidaService.gerarPartidas(tipoPartida));
     }
 
+    @ResponseBody
+    @GetMapping(value = "/partidas-futuras", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Partida>> partidasFuturas() throws Exception {
+        return ResponseEntity.ok().body(partidaService.partidasNaoEncerradas());
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/partidas-encerradas", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Partida>> partidasEncerradas() throws Exception {
+        return ResponseEntity.ok().body(partidaService.partidasNaoEncerradas());
+    }
+
 }

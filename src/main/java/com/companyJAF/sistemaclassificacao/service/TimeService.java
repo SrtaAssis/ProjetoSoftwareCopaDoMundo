@@ -49,6 +49,13 @@ public class TimeService {
         return timesDisponiveis;
     }
 
+    public List<Time> getTimesEliminados(){
+        //pega apenas times que foram eliminados
+        List<Time> timesDisponiveis = timeRepository.findAllByTaEliminadoIn(true);
+
+        return timesDisponiveis;
+    }
+
     public void separarGrupos(){
         List<Time> times = getTimesDisponiveis();
         //embaralha a lista de times

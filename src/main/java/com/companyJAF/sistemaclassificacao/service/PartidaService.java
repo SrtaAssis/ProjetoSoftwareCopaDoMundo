@@ -137,6 +137,10 @@ public class PartidaService {
         List<Partida> partidasEncerradas = partidaRepository.findAllByTaEncerradaIn(false);
         return partidasEncerradas;
     }
+    public List<Partida> partidasEncerradas(){
+        List<Partida> partidasEncerradas = partidaRepository.findAllByTaEncerradaIn(true);
+        return partidasEncerradas;
+    }
 
     public void calcularVencedor(){
         List<String> grupos = new ArrayList<String>();
