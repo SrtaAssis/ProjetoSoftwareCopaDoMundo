@@ -1,10 +1,17 @@
 package com.companyJAF.sistemaclassificacao.controller;
 
+import com.companyJAF.sistemaclassificacao.enums.TipoPartida;
+import com.companyJAF.sistemaclassificacao.model.Partida;
+import com.companyJAF.sistemaclassificacao.service.PartidaService;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Slf4j
@@ -13,5 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "partida")
 public class PartidaController {
+
+    @Autowired
+    PartidaService partidaService;
+
+    @ResponseBody
+    @PostMapping(value = "/gerar-partida", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Partida>> gerarPartida(TipoPartida tipoPartida) throws Exception {
+        return ResponseEntity.ok().body(partidaService.gerarPartidas(tipoPartida));
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/partidas-futuras", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Partida>> partidasFuturas() throws Exception {
+        return ResponseEntity.ok().body(partidaService.partidasNaoEncerradas());
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/partidas-encerradas", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Partida>> partidasEncerradas() throws Exception {
+        return ResponseEntity.ok().body(partidaService.partidasNaoEncerradas());
+    }
 
 }

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 
 @Builder
 @Data
@@ -20,5 +22,5 @@ public class Historico {
     private int qtdGols;
     private Cartoes cartoes;
     private String fk_idTime;
-    private String fk_IdPartida;
+    private String fk_idPartida;
 }

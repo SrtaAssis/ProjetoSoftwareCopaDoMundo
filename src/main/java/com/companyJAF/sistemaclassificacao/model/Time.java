@@ -1,5 +1,6 @@
 package com.companyJAF.sistemaclassificacao.model;
 
+import com.companyJAF.sistemaclassificacao.dto.Cartoes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,11 +17,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Time {
     @Id
     private String _id;
-    private double pontuacao;
+    private int pontuacao;
     private String nome;
     private int qtdGols;
-    private int qtdCartoes;
+    private Cartoes cartoes;
     private String grupo;
     private Boolean taEliminado;
+    private Boolean taSemiFinal;
+    private int ordem;
     private int colocacao;
 }
